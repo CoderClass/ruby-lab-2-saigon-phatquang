@@ -1,0 +1,7 @@
+<div class="signup-form">
+  <%= form_tag("/login", method: "post") do %>
+    <%= text_field_tag 'email', '', class: 'form-control', placeholder: 'Your E-mail' %>
+    <%= password_field_tag 'password', '', class: 'form-control', placeholder: 'Your E-mail' %>
+    <%= submit_tag 'Log In', class: 'btn btn-block btn-info' %>
+  <% end %>
+</div>
