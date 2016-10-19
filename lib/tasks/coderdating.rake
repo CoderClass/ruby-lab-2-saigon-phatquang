@@ -1,6 +1,7 @@
 namespace :coderdating do
   desc "Create five female users and five male users"
   task generate_users: :environment do
+    description = %w(Male Female)
     fem_url = 'https://randomuser.me/api?results=5&gender=female'
     male_url = 'https://randomuser.me/api?results=5&gender=male'
     [fem_url, male_url].each do |url|
@@ -9,7 +10,9 @@ namespace :coderdating do
           name: "#{person['name']['first']} #{person['name']['last']}",
           email: "#{person['email']}",
           image_url: "#{person['picture']['medium']}",
-          password: "#{person['login']['password']}"
+          password: "#{person['login']['password']}",
+          description: description.sample,
+          looking_for: description.sample
         )
       end
     end
