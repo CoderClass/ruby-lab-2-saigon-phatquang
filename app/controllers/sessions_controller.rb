@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+  	skip_if_logged_in
     @user = User.new
   end
 
@@ -22,6 +23,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
+		flash[:success] = "LogOut success"
 		redirect_to root_path
 	end
 
