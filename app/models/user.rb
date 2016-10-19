@@ -16,6 +16,7 @@ class User < ApplicationRecord
     user.password = '123456'
     user.password_confirmation = '123456'
     user.name = 'facebook'
+    user.image_url = auth[:info][:image] || "#{auth[:uid]}@facebook.com"
     user.save && user
   end
 end
